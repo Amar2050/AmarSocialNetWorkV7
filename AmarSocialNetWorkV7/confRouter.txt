@@ -1,0 +1,31 @@
+How to configure a server Apache to create a router
+    - Create public folder in your project root folder
+    - Create index.php file in the public folder
+    - Create a virtual host 
+        - open the file hosts located in C://windows/system32/drivers/etc/hosts
+        - create a new host name server 
+            "
+            127.0.0.1	social-network-v7.com
+            ::1	social-network-v7.com
+            "
+        - open the file named "httpd-vhost.conf" located in c://wamp64/bin/apache/conf/extra/httpd-vhost.conf
+        - add the following lines: 
+            "
+            <VirtualHost *:80>
+                ServerName social-network-v7.com
+                DocumentRoot "c:/wamp64/www/greta/amarsocialnetworkv7/public"
+                <Directory  "c:/wamp64/www/greta/amarsocialnetworkv7/public/">
+                    Options +Indexes +Includes +FollowSymLinks +MultiViews
+                    AllowOverride All
+                    Require local
+
+                    <IfModule mod_rewrite.c>
+                        Options -MultiViews
+                        RewriteEngine On
+                        RewriteCond %{REQUEST_FILENAME} !-f
+                        RewriteRule ^(.*)$ index.php [QSA,L]
+                    </IfModule>
+                </Directory>
+            </VirtualHost>
+            "
+        

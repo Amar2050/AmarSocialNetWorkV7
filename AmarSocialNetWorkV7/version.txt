@@ -1,0 +1,14 @@
+V5 : Implement a login linked with the database
+
+AmarSocialNetworkV5 : Special version V5 corrected by Amar
+
+AmarSocialNetworkV6 : 
+    - Implement the MVC for the login and logout page
+    - Implement the MVC for the page displayArticleByAuthorId()
+        - Create class Article in the model
+        - Create article repository and the function getArticlesByAuthorId() which return an array of getArticles
+        
+AmarSocialNetworkV7 : 
+    - Create a router
+
+
